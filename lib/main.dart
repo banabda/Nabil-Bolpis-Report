@@ -1,5 +1,5 @@
 import 'package:bolpis/models/user.dart';
-import 'package:bolpis/screen/splashscreen.dart';
+import 'package:bolpis/screen/splash.dart';
 import 'package:bolpis/screen/wrapper.dart';
 import 'package:bolpis/services/auth.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.amber
       ),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: Splash(),
       routes: <String, WidgetBuilder>{
         '/main':(BuildContext context) => EnterApps(),
       },
