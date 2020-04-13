@@ -1,4 +1,5 @@
 import 'package:bolpis/models/user.dart';
+import 'package:bolpis/screen/splashscreen.dart';
 import 'package:bolpis/screen/wrapper.dart';
 import 'package:bolpis/services/auth.dart';
 import 'package:flutter/material.dart';
@@ -15,13 +16,29 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.amber,
     ));
+    return MaterialApp(
+      theme: ThemeData(
+          primarySwatch: Colors.amber
+      ),
+      debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
+      routes: <String, WidgetBuilder>{
+        '/main':(BuildContext context) => EnterApps(),
+      },
+    );
+  }
+}
+class EnterApps extends StatefulWidget {
+  @override
+  _EnterAppsState createState() => _EnterAppsState();
+}
+
+class _EnterAppsState extends State<EnterApps> {
+  @override
+  Widget build(BuildContext context) {
     return StreamProvider<User>.value(
       value: AuthService().user,
       child: MaterialApp(
-
-        theme: ThemeData(
-          primarySwatch: Colors.amber
-        ),
         debugShowCheckedModeBanner: false,
         home: Wrapper(),
       ),
