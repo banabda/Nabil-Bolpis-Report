@@ -149,7 +149,7 @@ class _SignInState extends State<SignIn> {
                     ),
                     onPressed: () async {
                       if (_formKey.currentState.validate()){
-                        dynamic result = await _auth.SignInEmailPass(email, password);
+                        dynamic result = await _auth.signInEmailPass(email, password);
                         if (result==null){
                           setState(() => error = 'Wrong email or password');
                         }

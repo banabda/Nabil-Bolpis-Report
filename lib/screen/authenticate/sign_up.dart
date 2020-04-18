@@ -77,7 +77,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 onPressed: () async {
                   if (_formKey.currentState.validate()){
-                    dynamic result = await _auth.SignUpEmailPass(email, password);
+                    dynamic result = await _auth.signUpEmailPass(email, password);
                     if (result==null){
                       setState(() => error = 'please supply a vaalid email');
                     }

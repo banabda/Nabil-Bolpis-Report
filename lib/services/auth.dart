@@ -32,7 +32,7 @@ class AuthService{
 
 
   //  sign in email and pass
-  Future SignInEmailPass(String email, String password) async {
+  Future signInEmailPass(String email, String password) async {
     try{
       AuthResult result = await _auth.signInWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
@@ -44,7 +44,7 @@ class AuthService{
   }
 
   //  sign up email and pass
-  Future SignUpEmailPass(String email, String password) async {
+  Future signUpEmailPass(String email, String password) async {
     try{
       AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
@@ -56,7 +56,7 @@ class AuthService{
   }
 
   //  sign out
-  Future SignOut() async {
+  Future signOut() async {
     try{
       return await _auth.signOut();
     }catch(e){
