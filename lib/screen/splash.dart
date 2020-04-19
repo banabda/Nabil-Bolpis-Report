@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'package:bolpis/screen/wrapper.dart';
+import 'package:bolpis/shared/loading.dart';
 import 'package:flutter/material.dart';
 
 class Splash extends StatefulWidget {
@@ -7,10 +10,27 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
 
+  startSplashScreen() async {
+    var duration =  const Duration(seconds: 3);
+    return Timer(duration, (){
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_){
+          return Wrapper();
+        })
+      );
+    });
+  }
+
+  @override
+  void initState() { 
+    super.initState();
+    startSplashScreen();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      body: LoadingScreen(),
     );
   }
 }

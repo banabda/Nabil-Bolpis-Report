@@ -1,5 +1,6 @@
 import 'package:bolpis/services/auth.dart';
 import 'package:bolpis/shared/constant.dart';
+import 'package:bolpis/shared/loading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,13 +20,15 @@ class _SignInState extends State<SignIn> {
   // text field state
   final _formKey = GlobalKey<FormState>();
 
+  bool loading = false;
+
   String email = '';
   String password = '';
   String error = '';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? LoadingScreen() : Scaffold(
 //      appBar: AppBar(
 //        backgroundColor: Colors.amber[400],
 //        elevation: 0.0,
@@ -138,9 +141,13 @@ class _SignInState extends State<SignIn> {
                     ),
                     onPressed: () async {
                       if (_formKey.currentState.validate()){
+                        setState(() => loading = true);
                         dynamic result = await _auth.signInEmailPass(email, password);
                         if (result==null){
-                          setState(() => error = 'Wrong email or password');
+                          setState(() {
+                            error = 'Wrong email or password';
+                            loading = false;
+                          });
                         }
                       }
                     },

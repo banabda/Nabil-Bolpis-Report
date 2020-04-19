@@ -1,5 +1,5 @@
 import 'package:bolpis/models/user.dart';
-import 'package:bolpis/screen/wrapper.dart';
+import 'package:bolpis/screen/splash.dart';
 import 'package:bolpis/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -33,13 +33,15 @@ class EnterApps extends StatefulWidget {
 }
 
 class _EnterAppsState extends State<EnterApps> {
+  
   @override
   Widget build(BuildContext context) {
     return StreamProvider<User>.value(
       value: AuthService().user,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Wrapper(),
+        
+        home: Splash(),
       ),
     );
   }

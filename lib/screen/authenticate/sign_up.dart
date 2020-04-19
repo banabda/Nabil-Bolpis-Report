@@ -1,5 +1,6 @@
 import 'package:bolpis/services/auth.dart';
 import 'package:bolpis/shared/constant.dart';
+import 'package:bolpis/shared/loading.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
@@ -15,14 +16,14 @@ class _SignUpState extends State<SignUp> {
 
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
-
+  bool loading = false;
   String email = '';
   String password = '';
   String error = '';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? LoadingScreen() : Scaffold(
       backgroundColor: Colors.amberAccent[100],
 //      appBar: AppBar(
 //        backgroundColor: Colors.amber[400],
@@ -136,9 +137,13 @@ class _SignUpState extends State<SignUp> {
                     ),
                     onPressed: () async {
                       if (_formKey.currentState.validate()){
+                        setState(() => loading=true);
                         dynamic result = await _auth.signUpEmailPass(email, password);
                         if (result==null){
-                          setState(() => error = 'please supply a vaalid email');
+                          setState((){ 
+                            error = 'please supply a vaalid email';
+                            loading = false;
+                            });
                         }
                       }
                     },
