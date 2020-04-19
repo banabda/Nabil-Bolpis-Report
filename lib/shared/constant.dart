@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 var textInputDecoration = InputDecoration(
   border: InputBorder.none,
-  hintText: "Password",
   hintStyle: TextStyle(color: Colors.grey[400]),
 );
 

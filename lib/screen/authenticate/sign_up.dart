@@ -90,7 +90,7 @@ class _SignUpState extends State<SignUp> {
                             onChanged: (val){
                               setState(() => email = val);
                             },
-                            decoration: textInputDecoration
+                            decoration: textInputDecoration.copyWith(hintText: "Email")
                           ),
                         ),
                         Container(
@@ -101,7 +101,7 @@ class _SignUpState extends State<SignUp> {
                             onChanged: (val){
                               setState(() => password = val);
                             },
-                            decoration: textInputDecoration,
+                            decoration: textInputDecoration.copyWith(hintText: "Password"),
                             obscureText: true,
                           ),
                         ),
