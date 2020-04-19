@@ -1,4 +1,5 @@
 import 'package:bolpis/services/auth.dart';
+import 'package:bolpis/shared/constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -46,7 +47,7 @@ class _SignInState extends State<SignIn> {
                       child: Column(
                         children: <Widget>[
                           Text(
-                              "Welcome",
+                              "Sign In Page",
                               style: TextStyle(
                                 color: Colors.amber,
                                 fontSize: 40.0,
@@ -83,9 +84,7 @@ class _SignInState extends State<SignIn> {
                       children: <Widget>[
                         Container(
                           padding: EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            border: Border(bottom: BorderSide(color: Colors.grey[100]))
-                          ),
+                          decoration: boxInputDecoration,
                           child: TextFormField(
                             keyboardType: TextInputType.emailAddress,
                             maxLines: 1,
@@ -93,28 +92,18 @@ class _SignInState extends State<SignIn> {
                             onChanged: (val){
                               setState(() => email = val);
                             },
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: "Email",
-                              hintStyle: TextStyle(color: Colors.grey[400]),
-                            ),
+                            decoration: textInputDecoration
                           ),
                         ),
                         Container(
                           padding: EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                              border: Border(bottom: BorderSide(color: Colors.grey[100]))
-                          ),
+                          decoration: boxInputDecoration,
                           child: TextFormField(
                             validator: (val) => val.isEmpty ? "Enter the password" : null,
                             onChanged: (val){
                               setState(() => password = val);
                             },
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: "Password",
-                              hintStyle: TextStyle(color: Colors.grey[400]),
-                            ),
+                            decoration: textInputDecoration,
                             obscureText: true,
                           ),
                         ),
@@ -134,13 +123,13 @@ class _SignInState extends State<SignIn> {
 //                obscureText: true,
 //              ),
                   SizedBox(height: 40.0),
-//                  GestureDetector(
-//                    onTap: (){
-//                      widget.toogleView();
-//                    },
-//                    child: Text("Sign Up Here"),
-//                  ),
-//                  SizedBox(height: 20.0),
+                 GestureDetector(
+                   onTap: (){
+                     widget.toogleView();
+                   },
+                   child: Text("Sign Up Here"),
+                 ),
+                 SizedBox(height: 20.0),
                   RaisedButton(
                     color: Colors.amber,
                     child: Text(
