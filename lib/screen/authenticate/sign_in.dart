@@ -35,7 +35,6 @@ class _SignInState extends State<SignIn> {
 //        title: Text("Sign In to Nabil Bolpis"),
 //      ),
       body: Container(
-
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -142,7 +141,9 @@ class _SignInState extends State<SignIn> {
                     onPressed: () async {
                       if (_formKey.currentState.validate()){
                         setState(() => loading = true);
+                        print("$email $password");
                         dynamic result = await _auth.signInEmailPass(email, password);
+                        print(result.toString());
                         if (result==null){
                           setState(() {
                             error = 'Wrong email or password';

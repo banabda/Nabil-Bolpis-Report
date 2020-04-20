@@ -26,9 +26,7 @@ class _SplashState extends State<Splash> {
         MaterialPageRoute(builder: (_){
           return StreamProvider<User>.value(
             value: AuthService().user,
-            child: MaterialApp(
-              home: Wrapper(),
-            )
+            child: Wrapper()
           );
         })
       );

@@ -24,7 +24,6 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return loading ? LoadingScreen() : Scaffold(
-      backgroundColor: Colors.amberAccent[100],
 //      appBar: AppBar(
 //        backgroundColor: Colors.amber[400],
 //        elevation: 0.0,
@@ -109,7 +108,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   
-                  SizedBox(height: 20.0),
+                  SizedBox(height: 40.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -130,7 +129,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   SizedBox(height: 20.0),
                   RaisedButton(
-                    color: Colors.greenAccent[200],
+                    color: Colors.amber,
                     child: Text(
                       'Sign Up',
                       style: TextStyle(color: Colors.white),

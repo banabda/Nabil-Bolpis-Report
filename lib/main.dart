@@ -9,11 +9,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    //   statusBarColor: Colors.amber,
-    // ));
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.amberAccent[200],
+    ));
     return MaterialApp(
-        home: Splash(),
+      debugShowCheckedModeBanner: false,
+      home: Splash(),
     );
   }
 }
