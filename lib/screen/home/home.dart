@@ -27,7 +27,7 @@ class Home extends StatelessWidget {
         ),
         centerTitle: true,
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.exit_to_app), onPressed: () {})
+          IconButton(icon: Icon(Icons.exit_to_app), onPressed: () {_auth.signOut();})
         ],
       ),
       body: SingleChildScrollView(
@@ -60,12 +60,11 @@ class Home extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(30.0),
                         child: Container(
-                          height: screenHeight / 3,
+                          height: screenHeight / 3.5,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Container(
-                                margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                                 child: Padding(
                                   padding: const EdgeInsets.all(24.0),
                                   child: Row(
@@ -90,7 +89,7 @@ class Home extends StatelessWidget {
                                             style: TextStyle(
                                                 color: Colors.grey[600],
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 24.0),
+                                                fontSize: 16.0),
                                           ),
                                           SizedBox(height: 10.0),
                                           Row(
@@ -98,13 +97,14 @@ class Home extends StatelessWidget {
                                               Icon(
                                                 Icons.check_box,
                                                 color: Colors.green,
+                                                size: 16.0,
                                               ),
-                                              SizedBox(width: 10.0),
+                                              SizedBox(width: 8.0),
                                               Text(
                                                 "Verified account",
                                                 style: TextStyle(
                                                     color: Colors.grey[400],
-                                                    fontSize: 18.0),
+                                                    fontSize: 12.0),
                                               )
                                             ],
                                           ),
@@ -115,85 +115,95 @@ class Home extends StatelessWidget {
                                 ),
                               ),
                               Expanded(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: <Widget>[
-                                    GestureDetector(
-                                      onTap: (){},
-                                      child: Padding(
-                                        padding: EdgeInsets.symmetric(horizontal: 24.0),
-                                        child: Center(
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: <Widget>[
-                                              Icon(
-                                                Icons.message,
-                                                size: 40.0,
-                                                color: Colors.amber,
-                                                ),
-                                              SizedBox(height: 20.0),
-                                              Text(
-                                                "Pesanan",
-                                                style: TextStyle(
-                                                  fontSize: 15.0,
-                                                ),),
-                                            ],
+                                child: Padding(
+                                  padding: const EdgeInsets.only(bottom: 20.0),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      GestureDetector(
+                                        onTap: (){},
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(horizontal: 24.0),
+                                          child: Center(
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: <Widget>[
+                                                Icon(
+                                                  Icons.message,
+                                                  size: 40.0,
+                                                  color: Colors.amber,
+                                                  ),
+                                                SizedBox(height: 10.0),
+                                                Text(
+                                                  "Pesanan",
+                                                  style: TextStyle(
+                                                    fontSize: 12.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.grey[600]
+                                                  ),),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    GestureDetector(
-                                      onTap: (){},
-                                      child: Padding(
-                                        padding: EdgeInsets.symmetric(horizontal: 24.0),
-                                        child: Center(
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: <Widget>[
-                                              Icon(
-                                                Icons.store,
-                                                size: 40.0,
-                                                color: Colors.amber,
-                                                ),
-                                              SizedBox(height: 20.0),
-                                              Text(
-                                                "Lapak",
-                                                style: TextStyle(
-                                                  fontSize: 15.0,
-                                                ),),
-                                            ],
+                                      GestureDetector(
+                                        onTap: (){},
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(horizontal: 24.0),
+                                          child: Center(
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: <Widget>[
+                                                Icon(
+                                                  Icons.store,
+                                                  size: 40.0,
+                                                  color: Colors.amber,
+                                                  ),
+                                                SizedBox(height: 10.0),
+                                                Text(
+                                                  "Lapak",
+                                                  style: TextStyle(
+                                                    fontSize: 12.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.grey[600]
+                                                  ),),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    GestureDetector(
-                                      onTap: (){},
-                                      child: Padding(
-                                        padding: EdgeInsets.symmetric(horizontal: 24.0),
-                                        child: Center(
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: <Widget>[
-                                              Icon(
-                                                Icons.content_paste,
-                                                size: 40.0,
-                                                color: Colors.amber,
-                                                ),
-                                              SizedBox(height: 20.0),
-                                              Text(
-                                                "Bahan",
-                                                style: TextStyle(
-                                                  fontSize: 15.0,
-                                                ),),
-                                            ],
+                                      GestureDetector(
+                                        onTap: (){},
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(horizontal: 24.0),
+                                          child: Center(
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: <Widget>[
+                                                Icon(
+                                                  Icons.content_paste,
+                                                  size: 40.0,
+                                                  color: Colors.amber,
+                                                  ),
+                                                SizedBox(height: 10.0),
+                                                Text(
+                                                  "Bahan",
+                                                  style: TextStyle(
+                                                    fontSize: 12.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.grey[600]
+                                                  ),),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               )
                             ],
