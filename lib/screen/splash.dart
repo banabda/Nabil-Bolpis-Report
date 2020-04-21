@@ -36,7 +36,24 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LoadingScreen(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "Nabil Bolpis",
+              style: TextStyle(
+                color: Colors.amber,
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold
+              ),
+            ),
+            SizedBox(height: 20.0),
+            LoadingScreen(),
+            ],
+          ),
+      ),
     );
   }
 }
